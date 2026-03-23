@@ -1,3 +1,3 @@
-Built this in about 5 hours. Wanted to check if I still remember how to do signalR.
+Built front and backend in about 5 hours. Wanted to check if I still remember how to do signalR.
 
-- still need to wrap in docker images.
+Then wrapped in docker and added runtime environemt variable for docker
