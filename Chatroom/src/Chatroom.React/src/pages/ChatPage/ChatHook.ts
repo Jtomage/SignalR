@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 import * as signalR from "@microsoft/signalr"
 import type { messageModel } from '../../models/messageModel';
-
+import { getConfig } from '../../utils/configService';
 
 export const useChatHook = () => {
     const [messages, setMessages] = useState<messageModel[]>([])
     const [connection, setConnection] = useState<signalR.HubConnection | null>(null)
 
+    const config = getConfig();
+
     useEffect(() => {
         const newConnection = new signalR.HubConnectionBuilder()
-            .withUrl("https://localhost:7284/chatHub",
+            .withUrl(config.chathub_url,
                 {
                     skipNegotiation: true,
                     transport: signalR.HttpTransportType.WebSockets
